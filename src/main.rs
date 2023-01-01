@@ -82,9 +82,6 @@ fn startup(
     });
 }
 
-#[derive(Resource, Default)]
-struct CursorPos(Vec2);
-
 fn mb2_sys(
     mut commands: Commands,
     mouse_input: Res<Input<MouseButton>>,
@@ -268,7 +265,6 @@ fn main() {
         .add_system(mb1_sys)
         .add_system(mb2_sys)
         .add_system(restart_sys)
-        .init_resource::<CursorPos>()
         .add_plugin(TilemapPlugin)
         .add_startup_system(startup)
         .run();
